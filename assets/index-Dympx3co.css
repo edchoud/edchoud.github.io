@@ -381,22 +381,21 @@ body a {
     font-size: clamp(1.6rem, 1.486rem + .57vw, 2rem);
     line-height: 1.1;
     max-width: 42%;
-    margin-left: auto;
+    /*margin-left: auto;*/
     text-wrap: balance;
 }
 
-/* @media (max-width: 1440px) {
+@media (max-width: 1440px) {
     .hero__subtitle {
         max-width: 54%;
-        max-width: unset;
     }
-}*/
+}
 
-/*@media (max-width: 1024px) {
+@media (max-width: 1024px) {
     .hero__subtitle {
         max-width: unset;
     }
-}*/
+}
 
 .hero__subtitle .around-spin {
     margin-top: 1rem;
