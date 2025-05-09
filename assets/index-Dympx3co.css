@@ -197,7 +197,7 @@ body a {
     width: 100%;
     z-index: 100;
     color: #fff;
-    padding-block: 1rem;
+    padding-block: 0rem;
     -webkit-transition: color .4s ease-in-out;
     transition: color .4s ease-in-out;
 }
@@ -226,7 +226,7 @@ body a {
 
 .header__logo {
     font-family: 'Big Shoulders', sans-serif;
-    font-size: 2.4rem;
+    font-size: 1.4rem;
 }
 
 .header__mail {
