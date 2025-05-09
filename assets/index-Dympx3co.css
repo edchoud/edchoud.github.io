@@ -380,7 +380,7 @@ body a {
     color: #fff;
     font-size: clamp(1.6rem, 1.486rem + .57vw, 2rem);
     line-height: 1.1;
-    max-width: 42%;
+    /*max-width: 42%;*/
     /*margin-left: auto;*/
     text-wrap: balance;
 }
