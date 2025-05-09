@@ -349,7 +349,7 @@ body a {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    font-size: calc(7 * (1vw + 1vh));
+    font-size: calc(5 * (1vw + 1vh));
     font-weight: 350;
     letter-spacing: -.4rem;
     will-change: transform, color;
