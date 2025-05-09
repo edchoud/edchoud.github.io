@@ -197,7 +197,7 @@ body a {
     width: 100%;
     z-index: 100;
     color: #fff;
-    padding-block: 0rem;
+    padding-block: 1rem;
     -webkit-transition: color .4s ease-in-out;
     transition: color .4s ease-in-out;
 }
