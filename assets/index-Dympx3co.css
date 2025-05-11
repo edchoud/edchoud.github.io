@@ -385,7 +385,7 @@ body a {
     text-wrap: balance;
 }
 
-/*@media (max-width: 1440px) {
+@media (max-width: 1440px) {
     .hero__subtitle {
         max-width: 54%;
     }
@@ -393,9 +393,9 @@ body a {
 
 @media (max-width: 1024px) {
     .hero__subtitle {
-        max-width: unset;
+        max-width: 80%;
     }
-}*/
+}
 
 .hero__subtitle .around-spin {
     margin-top: 1rem;
