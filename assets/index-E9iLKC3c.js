@@ -109,18 +109,18 @@ function f() {
     gsap.from(".about-content__text", {
         scrollTrigger: {
             trigger: ".about",
-            start: "0 center",
+            start: "top 80%",
             ease: "power4.inOut"
         },
         yPercent: "10",
         autoAlpha: 0,
-        duration: .7
+        duration: .5
     });
 
     gsap.timeline({
             scrollTrigger: {
                 trigger: ".skills",
-                start: "0 center",
+                start: "top 80%",
                 end: "bottom bottom",
                 ease: "power1.inOut"
             }
@@ -128,14 +128,14 @@ function f() {
         .from(".skills-item > *", {
             yPercent: "10",
             autoAlpha: 0,
-            duration: .7,
+            duration: .5,
             stagger: .1
         });
 
     gsap.timeline({
             scrollTrigger: {
                 trigger: ".contact",
-                start: "-100 center",
+                start: "top 80%",
                 end: "bottom bottom",
                 ease: "power1.inOut"
             }
@@ -143,7 +143,7 @@ function f() {
         .from(".contact-row > *", {
             yPercent: "10",
             autoAlpha: 0,
-            duration: .7,
+            duration: .5,
             stagger: .1
         })
         .from(".footer-row > *", {
