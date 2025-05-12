@@ -109,7 +109,7 @@ function f() {
     gsap.from(".about-content__text", {
         scrollTrigger: {
             trigger: ".about",
-            start: "top 80%",
+            start: "top 75%",
             ease: "power4.inOut"
         },
         yPercent: "10",
@@ -120,7 +120,7 @@ function f() {
     gsap.timeline({
             scrollTrigger: {
                 trigger: ".skills",
-                start: "top 80%",
+                start: "top 75%",
                 end: "bottom bottom",
                 ease: "power1.inOut"
             }
@@ -135,7 +135,7 @@ function f() {
     gsap.timeline({
             scrollTrigger: {
                 trigger: ".contact",
-                start: "top 80%",
+                start: "top 75%",
                 end: "bottom bottom",
                 ease: "power1.inOut"
             }
@@ -156,12 +156,12 @@ function f() {
         gsap.to(t, {
             scrollTrigger: {
                 trigger: t,
-                start: "top center",
+                start: "top 75%",
                 end: "bottom 80%",
                 ease: "circ.inOut"
             },
             yPercent: 100,
-            duration: 1.4
+            duration: 1.1
         });
     });
 }
