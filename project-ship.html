@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project: Ship Designer | Edouard Choudin Portfolio</title>
+
+    <link rel="icon" href="images/ec_favicon.ico" />
+    <link rel="stylesheet" crossorigin href="assets/index-Dympx3co.css" />
+    </head>
+<body>
+    <header class="header">
+      <div class="header-container">
+        <p class="header__logo"><a href="index.html" style="text-decoration: none; color: inherit;">EC&#174;</a></p>
+        <div class="hamburger">
+          <div class="hamburger-bar"></div>
+        </div>
+        <nav class="menu-nav">
+          <ul class="menu-nav__list">
+            <li><div class="menu-nav__link-wrap"><a class="menu-nav__link" href="index.html#home">Home</a></div></li>
+            <li><div class="menu-nav__link-wrap"><a class="menu-nav__link" href="index.html#about">About</a></div></li>
+            <li><div class="menu-nav__link-wrap"><a class="menu-nav__link active" href="index.html#projects">Projects</a></div></li> <li><div class="menu-nav__link-wrap"><a class="menu-nav__link" href="index.html#contact">Contact</a></div></li>
+          </ul>
+          <div class="menu-nav__mail arrow-link">
+            <a href="mailto:edouard.choudin@gmail.com">edouard.choudin@gmail.com</a>
+            <img src="images/icons/arrow-right.svg" alt="" />
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrapper"> <div class="content project-detail"> <main>
+          <section class="container project-container"> <h1>Decathlon Travel</h1>
+            <img src="images/projects/decathlon_hero_image.webp" alt="Decathlon Travel main visual" style="width:100%; height:auto; margin-bottom: 2em;">
+
+            <h2>Project Overview</h2>
+            <p>
+              Describe the project goals, the problem it solved, the target audience, etc.
+              Add plenty of details here.
+            </p>
+
+            <h2>My Role & Process</h2>
+            <p>
+              Explain what you did specifically (UX research, UI design, prototyping...).
+              Show wireframes, mockups, user flows.
+            </p>
+            <img src="images/projects/decathlon_wireframe.webp" alt="Wireframe example" style="max-width: 80%; height: auto; margin: 1em 0;">
+
+            <h2>Challenges & Solutions</h2>
+            <p>
+              Discuss any difficulties encountered and how you overcame them. Showcase specific UI elements or design decisions.
+            </p>
+
+            <div style="margin-top: 3em; text-align: center;">
+              <a href="index.html#projects" class="arrow-link" style="text-decoration: none;">
+                 <img src="images/icons/arrow-left.svg" alt="" style="vertical-align: middle; margin-right: 0.5em;"/> Back to All Projects
+              </a>
+            </div>
+
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-row">
+          <p>&copy;<span class="year"></span></p>
+          <a class="footer-row__back-to-top" href="#">
+            <img src="images/icons/arrow-up.svg" alt="" />
+            <span>back to top</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lenis@1.1.19/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
+    <script type="module" crossorigin src="assets/index-E9iLKC3c.js"></script>
+
+    <script>
+        document.querySelectorAll(".year").forEach(r => {
+            r.textContent = new Date().getFullYear();
+        });
+        // Note: You might need to manually initialize menu toggling or other JS features
+        // if the main script doesn't work perfectly on these new pages.
+    </script>
+</body>
+</html>
