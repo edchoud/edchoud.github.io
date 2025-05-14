@@ -446,8 +446,8 @@ body a {
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /*display: grid;
+    grid-template-columns: repeat(2, 1fr);*/
 }
 
 @media (max-width: 1024px) {
@@ -458,7 +458,7 @@ body a {
 
 .about-content__text {
     margin-top: 48px;
-    grid-column: 2;
+    /*grid-column: 2;*/
     font-size: clamp(1.25rem, 1.136rem + .57vw, 1.5rem);
     line-height: 1.4;
     width: 60%;
