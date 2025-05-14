@@ -176,7 +176,7 @@ body a {
     font-family: 'Big Shoulders', sans-serif;
     opacity: .5;
     font-weight: 200;
-    font-size: 1.5em;
+    font-size: 1.3em;
     letter-spacing: -.05em;
 }
 
@@ -471,18 +471,14 @@ body a {
 }
 
 /* Section Skills */
-.skills {
-    margin-top: clamp(4rem, 3.091rem + 4.55vw, 6rem);
-}
+/* Removed .skills specific margin as the div was removed in HTML earlier */
+/* If .skills__container needs top margin, it was suggested to add it directly 
+   e.g., .about-content .skills__container { margin-top: clamp(2rem, 1.5rem + 2.27vw, 4rem); } 
+   or directly to .skills__container if it's always needed. For now, assuming spacing is handled or not required from here.
+*/
 
 @media (max-width: 1024px) {
-    .skills {
-        /* La règle originale `grid-template-columns: 1fr;` semblait s'appliquer à .skills
-           alors que .skills n'est pas défini comme un grid container.
-           Peut-être était-ce pour .skills__container ou une autre classe parente.
-           Je la laisse commentée pour référence. */
-        /* grid-template-columns: 1fr; */
-    }
+    /* .skills { ... } was removed */
 }
 
 .skills__container {
@@ -497,19 +493,21 @@ body a {
 
 @media (max-width: 1024px) {
     .skills__container {
-        margin-top: 48px;
+        margin-top: 48px; /* This was already there */
     }
 }
 
 .skills__heading {
-    font-size: 1.3em;
-    padding-block: .886em;
+    /* Adjusted font-size to rem as per previous advice */
+    font-size: 1.3rem; 
+    padding-block: .7em; 
 }
 
 .skills__content {
-    font-size: 1.05em;
+    /* Adjusted font-size to rem as per previous advice */
+    font-size: 1.05rem; 
     letter-spacing: normal;
-    padding-bottom: 1.7em;
+    padding-bottom: 1.5em; 
 }
 
 .skills__list {
@@ -531,7 +529,7 @@ body a {
     padding-inline: clamp(.5rem, .386rem + .57vw, .75rem);
 }
 
-/* Section Projects */
+/* Section Projects START - MODIFIED SECTION */
 .projects {
     background-color: #fff;
 }
@@ -577,70 +575,75 @@ body a {
 .projects-item__img {
     position: relative;
     overflow: hidden;
+    border-radius: 5px; /* Ensures container clips correctly */
 }
 
-.projects-item__img:hover .projects-item__img-link {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.projects-item__img img {
+/* Main project thumbnail image */
+.projects-item__img > img { 
+    display: block; 
     aspect-ratio: 1.2 / 1;
-    -o-object-fit: cover;
     object-fit: cover;
-    -o-object-position: center;
     object-position: center;
-    border-radius: 5px;
+    border-radius: 5px; /* Rounded corners for the image itself */
     width: 100%;
 }
 
+/* The <a> tag - make it cover the entire .projects-item__img area */
 .projects-item__img-link {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 5rem;
-    height: 5rem;
-    background-color: #191919;
-    border-radius: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none; /* Remove previous transform */
+    background-color: transparent; /* Link area is transparent */
+    border-radius: 5px; /* Match image's border-radius */
+    display: flex; /* For centering the arrow icon */
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    -webkit-transition: opacity .6s ease;
-    transition: opacity .6s ease;
+    opacity: 1; /* Link itself is always conceptually visible */
+    pointer-events: auto; /* Link is always clickable */
+    transition: none; /* No transition for the link itself */
+    text-decoration: none; /* Remove underline if any */
+}
+
+/* The arrow icon <img> INSIDE the <a> tag */
+.projects-item__img-link > img {
+    width: 5rem;  /* Size of the circular background */
+    height: 5rem; /* Size of the circular background */
+    background-color: #191919; /* Dark background for the circle */
+    border-radius: 100%; /* Makes it a circle */
+    padding: 1.5rem; /* Adjust to size your arrow SVG correctly within the circle */
+    box-sizing: border-box; /* Padding included in width/height */
+    opacity: 0; /* Hidden by default */
+    transform: scale(0.8); /* Start slightly smaller for hover effect */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for appearance */
+}
+
+/* On hover of the main image container, show the arrow icon */
+.projects-item__img:hover .projects-item__img-link > img {
+    opacity: 1;           /* Show the arrow icon */
+    transform: scale(1);  /* Scale it to normal size */
 }
 
 @media (max-width: 1024px) {
     .projects-item__img-link {
+        /* These existing styles are fine for making the link full-size and transparent on mobile */
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        -webkit-transform: none;
-        transform: none;
+        -webkit-transform: none; /* Ensure this is explicitly set if it was in the base */
+        transform: none; /* Ensure this is explicitly set if it was in the base */
         width: 100%;
         height: 100%;
-        border-radius: 0%;
-        background-color: transparent; /* #0000 équivaut à transparent */
+        border-radius: 0%; /* Or 5px if you want consistency with desktop link border */
+        background-color: transparent; 
     }
 
-    .projects-item__img-link img { /* L'image dans le lien devient cachée sur mobile */
-        display: none;
+    .projects-item__img-link > img { /* Targeting the arrow icon image specifically */
+        display: none; /* This keeps the arrow hidden on mobile */
     }
-}
-
-.projects-item__img-link img {
-    height: 1.5em;
-    width: 1.5em;
 }
 
 .projects-item__img-overlay {
@@ -649,7 +652,7 @@ body a {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 2;
+    z-index: 2; /* Ensure it's above the main image but potentially below the arrow if z-index stacking contexts are complex */
     background-color: #fff;
 }
 
@@ -676,10 +679,11 @@ body a {
     height: 1em;
     width: 1em;
 }
+/* Section Projects END - MODIFIED SECTION */
 
 /* Section Contact */
 .contact {
-    background-color: #536055;
+    background-color: #191919;
     color: #fff;
     padding-bottom: 2rem;
 }
@@ -722,7 +726,7 @@ body a {
     bottom: 0;
     width: 100%;
     color: #fff;
-    background: #536055;
+    background: #191919;
     padding: 1.2rem 0 0rem;
     opacity: .8;
 }
@@ -812,18 +816,6 @@ body a {
     -webkit-transform: rotate(-45deg) translate(0px, 0px);
     transform: rotate(-45deg) translate(0px, 0px); /* Simplifié translate(0) */
 }
-
-/*
-.hamburger-bar, .hamburger-bar:before, .hamburger-bar:after {
-    -webkit-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
-}
-*/
-/* La règle ci-dessus est déjà appliquée à .hamburger-bar:before et :after individuellement.
-   Et .hamburger-bar lui-même n'a pas de style visuel direct à transitionner (background:transparent)
-   Donc, elle peut être considérée comme redondante ou déjà couverte.
-*/
-
 
 /* Utilitaires */
 .line {
