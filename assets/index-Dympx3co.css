@@ -145,7 +145,7 @@ body {
     font-family: 'Inter Tight', sans-serif;
     font-size: clamp(1rem, .886rem + .57vw, 1.25rem);
     font-weight: 400;
-    line-height: 1; /* Note: une line-height de 1 peut être très serrée */
+    line-height: 1; 
 }
 
 body a {
@@ -176,7 +176,7 @@ body a {
     font-family: 'Big Shoulders', sans-serif;
     opacity: .5;
     font-weight: 200;
-    font-size: 1.3em;
+    font-size: 1.2em;
     letter-spacing: -.05em;
 }
 
@@ -381,7 +381,6 @@ body a {
     font-size: clamp(1.6rem, 1.486rem + .57vw, 2rem);
     line-height: 1.1;
     max-width: 42%;
-    /*margin-left: auto;*/
     text-wrap: balance;
 }
 
@@ -445,10 +444,7 @@ body a {
     background-color: #87b37a;
 }
 
-.about-content {
-    /*display: grid;
-    grid-template-columns: repeat(2, 1fr);*/
-}
+.about-content {}
 
 @media (max-width: 1024px) {
     .about-content {
@@ -458,7 +454,6 @@ body a {
 
 .about-content__text {
     margin-top: 48px;
-    /*grid-column: 2;*/
     font-size: clamp(1.25rem, 1.136rem + .57vw, 1.5rem);
     line-height: 1.4;
     width: 100%;
@@ -471,16 +466,6 @@ body a {
 }
 
 /* Section Skills */
-/* Removed .skills specific margin as the div was removed in HTML earlier */
-/* If .skills__container needs top margin, it was suggested to add it directly 
-   e.g., .about-content .skills__container { margin-top: clamp(2rem, 1.5rem + 2.27vw, 4rem); } 
-   or directly to .skills__container if it's always needed. For now, assuming spacing is handled or not required from here.
-*/
-
-@media (max-width: 1024px) {
-    /* .skills { ... } was removed */
-}
-
 .skills__container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -489,22 +474,21 @@ body a {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    /* If this container needs top margin, add it here e.g. margin-top: 3rem; */
 }
 
 @media (max-width: 1024px) {
     .skills__container {
-        margin-top: 48px; /* This was already there */
+        margin-top: 48px; 
     }
 }
 
 .skills__heading {
-    /* Adjusted font-size to rem as per previous advice */
     font-size: 1.3rem; 
     padding-block: .7em; 
 }
 
 .skills__content {
-    /* Adjusted font-size to rem as per previous advice */
     font-size: 1.05rem; 
     letter-spacing: normal;
     padding-bottom: 1.5em; 
@@ -538,7 +522,7 @@ body a {
     margin-top: clamp(3rem, 2.318rem + 3.41vw, 4.5rem);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
+    justify-items: center; /* This will center .projects-item if its max-width is less than column width */
     width: 100%;
     -webkit-column-gap: 1rem;
     -moz-column-gap: 1rem;
@@ -553,14 +537,11 @@ body a {
 }
 
 .projects-item {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     row-gap: 18px;
+    max-width: 90%; /* NEW: Reduces the width of the project item within the grid column */
+    /* The justify-items: center on .projects-container will center this block */
 }
 
 .projects-item__content {
@@ -575,7 +556,7 @@ body a {
 .projects-item__img {
     position: relative;
     overflow: hidden;
-    border-radius: 5px; /* Ensures container clips correctly */
+    border-radius: 5px; 
 }
 
 /* Main project thumbnail image */
@@ -584,8 +565,10 @@ body a {
     aspect-ratio: 1.2 / 1;
     object-fit: cover;
     object-position: center;
-    border-radius: 5px; /* Rounded corners for the image itself */
+    border-radius: 5px; 
     width: 100%;
+    opacity: 1; /* Default opacity for transition */
+    transition: opacity 0.3s ease; /* Transition for hover opacity change */
 }
 
 /* The <a> tag - make it cover the entire .projects-item__img area */
@@ -595,54 +578,63 @@ body a {
     left: 0;
     width: 100%;
     height: 100%;
-    transform: none; /* Remove previous transform */
-    background-color: transparent; /* Link area is transparent */
-    border-radius: 5px; /* Match image's border-radius */
-    display: flex; /* For centering the arrow icon */
+    transform: none; 
+    background-color: transparent; 
+    border-radius: 5px; 
+    display: flex; 
     justify-content: center;
     align-items: center;
-    opacity: 1; /* Link itself is always conceptually visible */
-    pointer-events: auto; /* Link is always clickable */
-    transition: none; /* No transition for the link itself */
-    text-decoration: none; /* Remove underline if any */
+    opacity: 1; 
+    pointer-events: auto; 
+    transition: none; 
+    text-decoration: none; 
 }
 
 /* The arrow icon <img> INSIDE the <a> tag */
 .projects-item__img-link > img {
-    width: 5rem;  /* Size of the circular background */
-    height: 5rem; /* Size of the circular background */
-    background-color: #191919; /* Dark background for the circle */
-    border-radius: 100%; /* Makes it a circle */
-    padding: 1.5rem; /* Adjust to size your arrow SVG correctly within the circle */
-    box-sizing: border-box; /* Padding included in width/height */
-    opacity: 0; /* Hidden by default */
-    transform: scale(0.8); /* Start slightly smaller for hover effect */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for appearance */
+    width: 5rem;  
+    height: 5rem; 
+    background-color: #191919; 
+    border-radius: 100%; 
+    padding: 1.5rem; 
+    box-sizing: border-box; 
+    opacity: 0; 
+    transform: scale(0.8); 
+    transition: opacity 0.3s ease, transform 0.3s ease; 
 }
 
 /* On hover of the main image container, show the arrow icon */
 .projects-item__img:hover .projects-item__img-link > img {
-    opacity: 1;           /* Show the arrow icon */
-    transform: scale(1);  /* Scale it to normal size */
+    opacity: 1;          
+    transform: scale(1);  
 }
 
+/* Reduce opacity of the main project image on hover */
+.projects-item__img:hover > img {
+    opacity: 0.75; /* Adjust as desired */
+}
+
+
 @media (max-width: 1024px) {
+    .projects-item {
+        max-width: 95%; /* Adjust for mobile if needed, or remove if 100% width is fine on mobile */
+    }
+
     .projects-item__img-link {
-        /* These existing styles are fine for making the link full-size and transparent on mobile */
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        -webkit-transform: none; /* Ensure this is explicitly set if it was in the base */
-        transform: none; /* Ensure this is explicitly set if it was in the base */
+        -webkit-transform: none; 
+        transform: none; 
         width: 100%;
         height: 100%;
-        border-radius: 0%; /* Or 5px if you want consistency with desktop link border */
+        border-radius: 0%; 
         background-color: transparent; 
     }
 
-    .projects-item__img-link > img { /* Targeting the arrow icon image specifically */
-        display: none; /* This keeps the arrow hidden on mobile */
+    .projects-item__img-link > img { 
+        display: none; 
     }
 }
 
@@ -652,7 +644,7 @@ body a {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 2; /* Ensure it's above the main image but potentially below the arrow if z-index stacking contexts are complex */
+    z-index: 2; 
     background-color: #fff;
 }
 
@@ -679,7 +671,7 @@ body a {
     height: 1em;
     width: 1em;
 }
-/* Section Projects END - MODIFIED SECTION */
+/* Section Projects END */
 
 /* Section Contact */
 .contact {
@@ -767,10 +759,10 @@ body a {
     top: 50%;
     right: 0;
     width: 30px;
-    height: 1px; /* Semble fin, pourrait être 1.5px ou 2px comme les :before/:after */
+    height: 1px; 
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    background: transparent; /* #0000 équivaut à transparent, la couleur vient des pseudo-éléments */
+    background: transparent; 
 }
 
 .hamburger-bar:before,
@@ -779,9 +771,9 @@ body a {
     position: absolute;
     width: 100%;
     height: 1.5px;
-    background: #fff; /* Couleur par défaut des barres */
-    -webkit-transition: all .25s ease-in-out; /* Ajout de la transition manquante ici */
-    transition: all .25s ease-in-out; /* Ajout de la transition manquante ici */
+    background: #fff; 
+    -webkit-transition: all .25s ease-in-out; 
+    transition: all .25s ease-in-out; 
 }
 
 .hamburger-bar:before {
@@ -794,27 +786,24 @@ body a {
     transform: rotate(0) translateY(4px);
 }
 
-/* Hamburger state in dark header */
 .header.dark .hamburger-bar:before,
 .header.dark .hamburger-bar:after {
-    background: #000; /* Barres noires sur header sombre */
+    background: #000; 
 }
 
-/* Hamburger active state in dark header with .light class on bar */
 .header.dark .hamburger.active .hamburger-bar.light:before,
 .header.dark .hamburger.active .hamburger-bar.light:after {
-    background: #fff; /* Barres blanches si .light et actif sur header sombre */
+    background: #fff; 
 }
 
-/* Hamburger active state */
 .hamburger.active .hamburger-bar:before {
     -webkit-transform: rotate(45deg) translate(0px, 0px);
-    transform: rotate(45deg) translate(0px, 0px); /* Simplifié translate(0) */
+    transform: rotate(45deg) translate(0px, 0px); 
 }
 
 .hamburger.active .hamburger-bar:after {
     -webkit-transform: rotate(-45deg) translate(0px, 0px);
-    transform: rotate(-45deg) translate(0px, 0px); /* Simplifié translate(0) */
+    transform: rotate(-45deg) translate(0px, 0px); 
 }
 
 /* Utilitaires */
