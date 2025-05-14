@@ -502,14 +502,14 @@ body a {
 }
 
 .skills__heading {
-    font-size: .47em;
+    font-size: 1.3em;
     padding-block: .886em;
 }
 
 .skills__content {
-    font-size: .38em;
+    font-size: 1.05em;
     letter-spacing: normal;
-    padding-bottom: 1.9em;
+    padding-bottom: 1.7em;
 }
 
 .skills__list {
